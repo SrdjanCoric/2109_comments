@@ -1,11 +1,17 @@
 import CommentThread from "./CommentThread";
 
-const Comments = ({ comments }) => {
+const Comments = ({ comments, onMoreReplies }) => {
   return (
     <div className="comments">
       <h2>Comments ({comments.length})</h2>
       {comments.map((comment) => {
-        return <CommentThread key={comment.id} comment={comment} />;
+        return (
+          <CommentThread
+            key={comment.id}
+            comment={comment}
+            onMoreReplies={onMoreReplies}
+          />
+        );
       })}
     </div>
   );

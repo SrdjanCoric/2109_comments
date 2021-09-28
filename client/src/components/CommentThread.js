@@ -1,6 +1,10 @@
 import Comment from "./Comment";
 
-const CommentThread = ({ comment }) => {
+const CommentThread = ({ comment, onMoreReplies }) => {
+  const handleMoreReplies = (e) => {
+    e.preventDefault();
+    onMoreReplies(comment.id);
+  };
   return (
     <div className="parent-comment">
       <Comment
@@ -17,9 +21,11 @@ const CommentThread = ({ comment }) => {
             postedAt={comment.postedAt}
           />
         ))}
-        <a href="#" className="show_more">
-          Show More Replies ({comment.replies_count - 1})
-        </a>
+        {comment.replies.length === comment.replies_count ? null : (
+          <a href="#/" className="show_more" onClick={handleMoreReplies}>
+            Show More Replies ({comment.replies_count - 1})
+          </a>
+        )}
       </div>
     </div>
   );
