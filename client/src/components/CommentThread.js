@@ -12,7 +12,7 @@ const CommentThread = ({ comment, onMoreReplies }) => {
         body={comment.body}
         postedAt={comment.postedAt}
       />
-      <div className="replies">
+      <div data-testid="replies" className="replies">
         {comment.replies.map((comment) => (
           <Comment
             key={comment.id}

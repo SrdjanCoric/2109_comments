@@ -14,11 +14,12 @@ const AddCommentForm = ({ onSubmit }) => {
     setBody("");
   };
   return (
-    <form action="" onSubmit={handleSubmit}>
+    <form aria-label="add comment form" action="" onSubmit={handleSubmit}>
       <h2>Post a Comment</h2>
       <div className="input-group">
-        <label>Your Name</label>
+        <label htmlFor="name">Your Name</label>
         <input
+          id="name"
           type="text"
           name="author"
           value={author}
@@ -27,8 +28,9 @@ const AddCommentForm = ({ onSubmit }) => {
       </div>
 
       <div className="input-group">
-        <label>Your Comment</label>
+        <label htmlFor="body">Your Comment</label>
         <textarea
+          id="body"
           name="body"
           value={body}
           cols="30"
