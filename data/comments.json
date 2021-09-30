@@ -336,23 +336,17 @@
   },
   {
     "author": "Srdjan",
-    "body": "New comment",
-    "id": "ab836d69-05cb-45e8-b5a1-416f6a30cbb1",
-    "postedAt": 1632843501257,
+    "body": "My comment",
+    "id": "fa22279e-0057-4060-8a41-af2c3312094e",
+    "postedAt": 1633016537700,
     "replies_count": 0,
     "replies": []
   },
   {
-    "author": "Srdjan",
-    "body": "new",
-    "id": "71bda2ed-c4fe-4107-9d0c-01958e42c188",
-    "postedAt": 1632843531193,
-    "replies_count": 0,
-    "replies": []
-  },
-  {
-    "id": "cb9344ba-af52-46c9-b220-7db49da06df6",
-    "postedAt": 1632843557667,
+    "author": "Srdjn",
+    "body": "this doesn't work",
+    "id": "2a7e12ac-97e1-45ca-bf51-896fba9abde3",
+    "postedAt": 1633016638611,
     "replies_count": 0,
     "replies": []
   }
