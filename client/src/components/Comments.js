@@ -1,35 +1,26 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import CommentThread from "./CommentThread";
 import { commentsReceived } from "../actions/commentsActions";
+import CommentThread from "./CommentThread";
 
-const Comments = ({ onMoreReplies }) => {
+const Comments = () => {
   const dispatch = useDispatch();
-
   const comments = useSelector((state) => state.comments);
-
   useEffect(() => {
     const fetchComments = async () => {
       const response = await axios.get("/api/comments");
       const data = response.data;
-      //action creator (function that returns an object)
       dispatch(commentsReceived(data));
     };
     fetchComments();
-  }, [dispatch]);
+  }, []);
 
   return (
     <div className="comments">
-      <h2>Comments ({comments.length})</h2>
+      <h2>Comments (2)</h2>
       {comments.map((comment) => {
-        return (
-          <CommentThread
-            key={comment.id}
-            comment={comment}
-            onMoreReplies={onMoreReplies}
-          />
-        );
+        return <CommentThread key={comment.id} comment={comment} />;
       })}
     </div>
   );

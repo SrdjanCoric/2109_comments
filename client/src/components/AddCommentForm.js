@@ -1,7 +1,7 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import { useDispatch } from "react-redux";
 import { commentCreated } from "../actions/commentsActions";
+import { useDispatch } from "react-redux";
 
 const AddCommentForm = () => {
   const [author, setAuthor] = useState("");
@@ -11,14 +11,10 @@ const AddCommentForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newComment = { author, body };
-    try {
-      const response = await axios.post("/api/comments", { ...newComment });
-      const comm = response.data;
-      dispatch(commentCreated(comm));
-      resetInputs();
-    } catch (e) {
-      console.error(e);
-    }
+    const response = await axios.post("/api/comments", { ...newComment });
+    const data = response.data;
+    dispatch(commentCreated(data));
+    resetInputs();
   };
 
   const resetInputs = () => {
@@ -26,12 +22,12 @@ const AddCommentForm = () => {
     setBody("");
   };
   return (
-    <form aria-label="add comment form" action="" onSubmit={handleSubmit}>
+    <form aria-label="Add a comment" onSubmit={handleSubmit}>
       <h2>Post a Comment</h2>
       <div className="input-group">
-        <label htmlFor="name">Your Name</label>
+        <label htmlFor="author">Your Name</label>
         <input
-          id="name"
+          id="author"
           type="text"
           name="author"
           value={author}
@@ -42,6 +38,7 @@ const AddCommentForm = () => {
       <div className="input-group">
         <label htmlFor="body">Your Comment</label>
         <textarea
+          aria-label="Your Comment"
           id="body"
           name="body"
           value={body}

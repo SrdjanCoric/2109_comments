@@ -1,36 +1,27 @@
-import comments from "./comments";
-import replies from "./replies";
 import { combineReducers } from "redux";
+import { comments } from "./comments";
+import { replies } from "./replies";
 
-const rootReducer = combineReducers({ comments, replies });
-
-// const rootReducer = (state = {}, action) => {
+// export const rootReducer = (state = {}, action) => {
 //   return {
 //     comments: comments(state.comments, action),
 //     replies: replies(state.replies, action),
 //   };
 // };
 
-export default rootReducer;
+export const rootReducer = combineReducers({ comments, replies });
 
-// state -> object
+// [comment1, comment2]
 
-// state = {
-//comments: [],
-//replies: []
-//}
+// comments without replies
+// replies
 
-// comment = { replies }
-
-// normalizing -> comments contain comments without replies
-// replies contain only replies array and you connect replies with a specific comment with commentID
-
-// user
+// users
 // blog posts
 // comments
-//replies
+// replies
 
-/// user
-// blog posts userId
-// comments blogPostId
-// replies commentId
+// usersWithoutBlogPosts
+// blogPostsWithoutComments
+// commentsWithoutReplies
+// replies

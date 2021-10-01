@@ -1,28 +1,18 @@
-const replies = (state = [], action) => {
+export const replies = (state = [], action) => {
   switch (action.type) {
     case "COMMENTS_RECEIVED": {
-      // removed all replies from all comments
-      const allReplies = action.payload.comments.reduce((acc, reply) => {
-        const { replies } = reply;
+      const replies = action.payload.comments.reduce((acc, comment) => {
+        const { replies } = comment;
         return acc.concat(replies);
       }, []);
-      return allReplies;
+      return replies;
     }
     case "REPLIES_RECEIVED": {
+      //state
+      // action.payload.replies
       return state.concat(action.payload.replies);
     }
-    default: {
+    default:
       return state;
-    }
   }
 };
-
-export default replies;
-
-/*
-id:1
-
-replies: [
-  {id: 2, commentId: 1}, {id:3, commentId: 1}
-]
-*/
